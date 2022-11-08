@@ -3,8 +3,7 @@
 <h1>Products</h1>
 
 <%= form_with method: :get do |form| %>
-  <%= form.search_field :query, value: params[:query] %>
-  <%= form.submit %>
+  <%= form.search_field :query, value: params[:query], onchange: "this.form.requestSubmit()" %>
 <% end %>
 
 <div id="products">
