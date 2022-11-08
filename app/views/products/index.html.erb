@@ -1,9 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>
+  Products
+  <% if params[:query].presence %>
+    containing "<%= params[:query] %>
+  <% end %>
+</h1>
 
 <%= form_with method: :get do |form| %>
-  <%= form.search_field :query, value: params[:query], onchange: "this.form.requestSubmit()" %>
+  <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()" %>
 <% end %>
 
 <div id="products">
