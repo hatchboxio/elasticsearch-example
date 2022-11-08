@@ -3,12 +3,12 @@
 <h1>
   Products
   <% if params[:query].presence %>
-    containing "<%= params[:query] %>
+    containing "<%= params[:query] %>"
   <% end %>
 </h1>
 
 <%= form_with method: :get do |form| %>
-  <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()" %>
+  <%= form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit()", autofocus: true %>
 <% end %>
 
 <div id="products">
