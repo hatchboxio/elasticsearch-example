@@ -3,8 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    query = params[:query].presence || "*"
-    @products = Product.search(query)
+    @products = Product.all
   end
 
   # GET /products/1 or /products/1.json
@@ -66,6 +65,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.fetch(:product, {})
+      params.require(:product).permit(:name)
     end
 end
